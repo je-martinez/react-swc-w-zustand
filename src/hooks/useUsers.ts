@@ -1,3 +1,8 @@
+import { useAppStore } from "../store";
+
 export default function useUsers() {
-  return {};
+  const users = useAppStore((state) => state.users);
+  const loading = useAppStore((state) => state.loadingUsers);
+  const { getUsers, getUserById } = useAppStore.getState();
+  return { users, loading, getUsers, getUserById };
 }
