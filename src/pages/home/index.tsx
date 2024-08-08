@@ -22,14 +22,17 @@ const HomePage: React.FC = () => {
 
   return (
     <>
-      {postsRandom?.map((post) => (
-        <FeedItem
-          key={post.id}
-          post={post}
-          comments={getCommentsByPostId(post.id)}
-          user={getUserById(post.userId)!}
-        />
-      ))}
+      <div className="flex flex-wrap bg-gray-50 dark:bg-black justify-center">
+        {postsRandom?.map((post) => (
+          <div key={post.id} className="md:w-1/2">
+            <FeedItem
+              post={post}
+              comments={getCommentsByPostId(post.id)}
+              user={getUserById(post.userId)!}
+            />
+          </div>
+        ))}
+      </div>
     </>
   );
 };

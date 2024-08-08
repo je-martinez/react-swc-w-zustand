@@ -13,7 +13,7 @@ const FeedItem: React.FC<FeedItemProps> = ({
   user,
 }: FeedItemProps) => {
   return (
-    <div className="bg-gray-50 dark:bg-black p-10 flex items-center justify-center">
+    <div className="p-10 flex items-center justify-center">
       <div className="bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-800 p-4 rounded-xl border max-w-xl">
         <div className="flex justify-between">
           <div className="flex items-center">
