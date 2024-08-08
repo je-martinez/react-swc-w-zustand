@@ -1,5 +1,6 @@
 import useCommentModal from "../../hooks/useCommentModal";
 import { Comment } from "../../types";
+import ImageWithPlaceholder from "../image-with-placeholder";
 
 interface CommentsModalProps {
   comments: Comment[];
@@ -31,10 +32,10 @@ const CommentsModal = ({ comments, isOpen, onClose }: CommentsModalProps) => {
                   key={comment.id}
                   className="flex items-center space-x-4 border-b border-gray-200 pb-2"
                 >
-                  <img
+                  <ImageWithPlaceholder
                     src={`https://avatar.iran.liara.run/public?username=${comment.email}`}
                     alt={`${comment.email} avatar`}
-                    className="w-10 h-10 rounded-full "
+                    className="min-w-10 min-h-10 w-10 h-10 rounded-full "
                   />
                   <div className="text-gray-900 dark:text-white">
                     <strong className="text-blue-500">
