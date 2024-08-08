@@ -18,7 +18,7 @@ const CommentsModal = ({ comments, isOpen, onClose }: CommentsModalProps) => {
   return (
     <>
       {isOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
+        <div className="fixed inset-0 z-10 bg-black bg-opacity-50 flex justify-center items-center">
           <div className="bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-800 rounded-lg w-full max-w-md p-6">
             <button
               className="text-gray-500 hover:text-black text-2xl float-right"

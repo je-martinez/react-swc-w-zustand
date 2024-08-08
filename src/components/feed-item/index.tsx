@@ -1,5 +1,6 @@
 import React, { useMemo } from "react";
 import { Post, Comment, User } from "../../types";
+import ImageWithPlaceholder from "../image-with-placeholder";
 
 interface FeedItemProps {
   post: Post;
@@ -18,14 +19,19 @@ const FeedItem: React.FC<FeedItemProps> = ({
     return Math.floor(Math.random() * (1000 - 1) + 1);
   }, []);
 
+  const getRandomPhotoId = useMemo(() => {
+    return Math.floor(Math.random() * (1084 - 1) + 1);
+  }, []);
+
   return (
     <div className="p-10 flex items-center justify-center">
       <div className="bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-800 p-4 rounded-xl border max-w-xl">
         <div className="flex justify-between">
           <div className="flex items-center">
             {user?.username && (
-              <img
+              <ImageWithPlaceholder
                 className="h-11 w-11 rounded-full"
+                alt={`${user.username} avatar`}
                 src={`https://avatar.iran.liara.run/public?username=${user.username}`}
               />
             )}
@@ -50,10 +56,13 @@ const FeedItem: React.FC<FeedItemProps> = ({
         <p className="text-black dark:text-white block text-xl leading-snug mt-3">
           {post.body}
         </p>
-        <img
-          className="mt-2 rounded-2xl border border-gray-100 dark:border-gray-700"
-          src="https://pbs.twimg.com/media/EpkuplDXEAEjbFc?format=jpg&name=medium"
-        />
+        <div className="my-4">
+          <ImageWithPlaceholder
+            className="w-full h-64 rounded-2xl border border-gray-100 dark:border-gray-700"
+            alt={`Post image ${post.id}`}
+            src={`https://picsum.photos/id/${getRandomPhotoId}/542/306`}
+          />
+        </div>
         <p className="text-gray-500 dark:text-gray-400 text-base py-1 my-0.5">
           10:05 AM · Dec 19, 2020
         </p>
